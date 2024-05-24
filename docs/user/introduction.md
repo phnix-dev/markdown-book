@@ -34,7 +34,7 @@ Markdown support may be limited due to Godot BBCode support.
 
 This project is licensed under the terms of the [Mozilla Public License, version 2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-The icon (addons\markdown_viewer\icon.svg) is licensed under the terms of the [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/) License
+The icon (./addons/markdown_viewer/icon.svg and ./icon.png) is licensed under the terms of the [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/) License.
 
 ## Thanks
 
