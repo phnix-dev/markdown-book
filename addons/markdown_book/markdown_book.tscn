@@ -1,0 +1,121 @@
+[gd_scene load_steps=17 format=3 uid="uid://b2v3ob8hjjvcd"]
+
+[ext_resource type="Script" path="res://addons/markdown_book/markdown_book.gd" id="1_7immt"]
+[ext_resource type="Script" path="res://addons/markdown_book/markdown_tree.gd" id="2_pfst2"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="3_0ha0o"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="4_3ak75"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="5_4vubc"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="6_i2jfb"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="7_jwa2b"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="8_d26e1"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="9_cicmv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dl7tr"]
+content_margin_left = 5.0
+content_margin_top = 0.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+
+[sub_resource type="Resource" id="Resource_glb6x"]
+resource_local_to_scene = true
+script = ExtResource("4_3ak75")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_1hc8u"]
+resource_local_to_scene = true
+script = ExtResource("5_4vubc")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_ub2gb"]
+resource_local_to_scene = true
+script = ExtResource("6_i2jfb")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_qi205"]
+resource_local_to_scene = true
+script = ExtResource("7_jwa2b")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_0v8em"]
+resource_local_to_scene = true
+script = ExtResource("8_d26e1")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_jsubp"]
+resource_local_to_scene = true
+script = ExtResource("9_cicmv")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dl7tr")
+
+[node name="MarkdownViewer" type="HBoxContainer" parent="." node_paths=PackedStringArray("tree")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+script = ExtResource("1_7immt")
+tree = NodePath("Tree")
+
+[node name="Tree" type="Tree" parent="MarkdownViewer" node_paths=PackedStringArray("rich_text")]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+hide_root = true
+script = ExtResource("2_pfst2")
+rich_text = NodePath("../MarkdownLabel")
+
+[node name="MarkdownLabel" type="RichTextLabel" parent="MarkdownViewer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[font_size=36]Introduction[/font_size]
+
+This plugin lets you write custom documentation and view it in Godot.
+
+The plugin uses the same hierarchy as mdbook.
+If you follow the mdbook guide, it should work.
+
+Markdown support may be limited.
+"
+script = ExtResource("3_0ha0o")
+markdown_text = "# Introduction
+
+This plugin lets you write custom documentation and view it in Godot.
+
+The plugin uses the same hierarchy as mdbook.
+If you follow the mdbook guide, it should work.
+
+Markdown support may be limited.
+"
+h1 = SubResource("Resource_glb6x")
+h2 = SubResource("Resource_1hc8u")
+h3 = SubResource("Resource_ub2gb")
+h4 = SubResource("Resource_qi205")
+h5 = SubResource("Resource_0v8em")
+h6 = SubResource("Resource_jsubp")
